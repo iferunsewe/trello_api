@@ -4,8 +4,8 @@ class CreateCards < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :description
       t.date :due_date
-      t.boolean :due_date_soon
-      t.boolean :overdue
+      t.boolean :due_date_soon, default: false
+      t.boolean :overdue, default: false
 
       t.timestamps
     end

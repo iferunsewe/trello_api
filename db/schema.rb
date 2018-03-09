@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309201747) do
+ActiveRecord::Schema.define(version: 20180309203123) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "due_date"
+    t.boolean "due_date_soon", default: false
+    t.boolean "overdue", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
