@@ -61,6 +61,18 @@ RSpec.describe 'Cards API', type: :request do
         expect_status_code?(201)
       end
     end
+
+    context 'when the request contains invalid params' do
+      let(:params){ }
+
+      it 'returns a 422 status code' do
+        expect_status_code?(422)
+      end
+
+      it 'returns a validation message' do
+        expect(parsed_json['error']).to include 'Validation failed'
+      end
+    end
   end
 
   def expect_status_code?(status_code)
