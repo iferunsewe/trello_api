@@ -12,12 +12,17 @@ class CardsController < ApplicationController
   end
 
   def create
-
+    @card = @list.cards.create!(card_params)
+    render json: @card, status: :created
   end
 
   private
 
   def set_list
     @list = List.find(params[:list_id])
+  end
+
+  def card_params
+    params.permit(:title, :description, :due_date)
   end
 end
