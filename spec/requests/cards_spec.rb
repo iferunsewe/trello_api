@@ -41,7 +41,24 @@ RSpec.describe 'Cards API', type: :request do
       end
 
       it 'returns a message to say the card could not be found' do
-        expect(parsed_json['error']).to eq "Couldn't find Card with 'id'=#{card_id}"
+        expect(parsed_json['error']).to include "Couldn't find Card with 'id'=#{card_id}"
+      end
+    end
+  end
+
+  describe 'create a card for a specific list' do
+    before { post "/lists/#{list_id}/cards", params: params }
+
+    context 'when the request contains valid params' do
+      let(:title) { 'Title' }
+      let(:params){ { title: title, description: 'More description' } }
+
+      it 'creates a card' do
+        expect(parsed_json['title']).to eq title
+      end
+
+      it 'returns a 201 status code' do
+        expect_status_code?(201)
       end
     end
   end

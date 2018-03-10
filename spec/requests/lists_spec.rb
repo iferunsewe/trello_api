@@ -44,9 +44,9 @@ RSpec.describe 'Lists API', type: :request do
   end
 
   describe 'create a list' do
-    context 'when the request contains valid params' do
-      before { post '/lists', params: params }
+    before { post '/lists', params: params }
 
+    context 'when the request contains valid params' do
       let(:name){ 'New list' }
       let(:params){ { name: name } }
 
@@ -60,8 +60,6 @@ RSpec.describe 'Lists API', type: :request do
     end
 
     context 'when the request contains invalid params' do
-      before { post '/lists', params: params }
-
       let(:name){ 'New list' }
       let(:params){ { name: nil } }
 
