@@ -6,7 +6,7 @@ RSpec.describe 'Lists API', type: :request do
   let(:list_id) { lists.last.id }
   let(:parsed_json){ JSON.parse(response.body) }
 
-  describe 'GET /lists (all the lists)' do
+  describe 'get all the lists' do
     before { get '/lists' }
     it 'returns all the lists' do
       expect(parsed_json.size).to eq(number_of_lists)
@@ -17,11 +17,10 @@ RSpec.describe 'Lists API', type: :request do
     end
   end
 
-  describe 'GET /lists/:id' do
+  describe 'get a list' do
     before { get "/lists/#{list_id}" }
 
     context 'when the list exists' do
-
       it 'returns the list' do
         expect(parsed_json['id']).to eq(list_id)
       end
@@ -30,6 +29,22 @@ RSpec.describe 'Lists API', type: :request do
         expect_status_code?(200)
       end
     end
+
+    context 'when the list does not exist' do
+      let(:list_id) { number_of_lists + 1 }
+
+      it 'returns a 404 status code' do
+        expect_status_code?(404)
+      end
+
+      it 'returns a message to say the list could not be found' do
+        expect(parsed_json['error']).to eq "Couldn't find List with 'id'=#{list_id}"
+      end
+    end
+  end
+
+  describe 'create a list' do
+
   end
 
   def expect_status_code?(status_code)
