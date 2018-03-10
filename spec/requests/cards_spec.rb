@@ -20,6 +20,20 @@ RSpec.describe 'Cards API', type: :request do
     end
   end
 
+  describe 'get a card from a list' do
+    before { get "/lists/#{list_id}/cards/#{card_id}" }
+
+    context 'when the card exists' do
+      it 'returns a 200 status code' do
+        expect_status_code?(200)
+      end
+
+      it 'returns the card' do
+        expect(parsed_json['id']).to eq(card_id)
+      end
+    end
+  end
+
   def expect_status_code?(status_code)
     expect(response.status).to eq status_code
   end
