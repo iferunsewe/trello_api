@@ -44,6 +44,20 @@ RSpec.describe 'Lists API', type: :request do
   end
 
   describe 'create a list' do
+    context 'when the request contains valid params' do
+      before { post '/lists', params: params }
+
+      let(:name){ 'New list' }
+      let(:params){ { name: name } }
+
+      it 'creates a list' do
+        expect(parsed_json['name']).to eq name
+      end
+
+      it 'returns a 201 status code' do
+        expect_status_code?(201)
+      end
+    end
 
   end
 
