@@ -3,4 +3,9 @@ class ListsController < ApplicationController
     @lists = List.all
     render json: @lists, status: :ok
   end
+
+  def show
+    @list = List.find(params[:id])
+    render json: @list, status: :ok
+  end
 end
