@@ -32,6 +32,18 @@ RSpec.describe 'Cards API', type: :request do
         expect(parsed_json['id']).to eq(card_id)
       end
     end
+
+    context 'when the card does not exist' do
+      let(:card_id) { number_of_cards + 1 }
+
+      it 'returns a 404 status code' do
+        expect_status_code?(404)
+      end
+
+      it 'returns a message to say the card could not be found' do
+        expect(parsed_json['error']).to eq "Couldn't find Card with 'id'=#{card_id}"
+      end
+    end
   end
 
   def expect_status_code?(status_code)
