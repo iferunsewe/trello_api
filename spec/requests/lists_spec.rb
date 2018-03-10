@@ -59,6 +59,20 @@ RSpec.describe 'Lists API', type: :request do
       end
     end
 
+    context 'when the request contains invalid params' do
+      before { post '/lists', params: params }
+
+      let(:name){ 'New list' }
+      let(:params){ { name: nil } }
+
+      it 'returns a 422 status code' do
+        expect_status_code?(422)
+      end
+
+      it 'returns a validation message' do
+        expect(parsed_json['error']).to include 'Validation failed'
+      end
+    end
   end
 
   def expect_status_code?(status_code)
