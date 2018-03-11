@@ -43,7 +43,7 @@ example responses
     
 Parameters:
 
- | name | data type | required_or_optional | description |
+ | name | data type | required or optional | description |
  | ---- | --------- | -------------------- | ----------- |
  | name | string    | required             | the name of your list |
     
@@ -52,21 +52,16 @@ Parameters:
      
 Parameters:
     
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | id | integer | required | id of your list |
+ | name | data type | required or optional | description |
+ | ---- | --------- | -------------------- | ----------- |
+ | id | integer | required | id of your list |
     
 #### Retrieve all the cards for a list
     GET /lists/:id/cards
     
 Parameters:
-
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
     
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- |          --- |
 | id | integer | required | id of your list |
         
@@ -75,7 +70,7 @@ Parameters:
      
 Parameters:
     
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | id | integer | required | id of your list |
 | card_id | integer | required | id of your the card|
@@ -86,7 +81,7 @@ Parameters:
 
 Parameters:
 
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | title | string    | required             | the title of your card |
 | description | string    | required             | the title of your card |
@@ -101,7 +96,7 @@ Parameters:
     
 Parameters:
 
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | title | string    | required             | the title of your card |
 | description | string    | required             | the title of your card |
