@@ -36,6 +36,7 @@ group :test do
   # More matchers for rspec
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
