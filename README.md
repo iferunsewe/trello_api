@@ -60,20 +60,25 @@ Parameters:
     GET /lists/:id/cards
     
 Parameters:
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
     
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | id | integer | required | id of your list |
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- |          --- |
+| id | integer | required | id of your list |
         
 #### Retrieve a card from a list
     GET /lists/:id/cards/:card_id       
      
 Parameters:
     
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | id | integer | required | id of your list |
-    | card_id | integer | required | id of your the card|
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- | ----------- |
+| id | integer | required | id of your list |
+| card_id | integer | required | id of your the card|
     
         
 #### Create a card for a list
@@ -81,13 +86,13 @@ Parameters:
 
 Parameters:
 
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | title | string    | required             | the title of your card |
-    | description | string    | required             | the title of your card |
-    | due_date | date    | optional             | the date for which your card is to be completed by. Can not be in the past |
-    | id | integer | required | id of your list |
-    | card_id | integer | required | id of your the card|
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- | ----------- |
+| title | string    | required             | the title of your card |
+| description | string    | required             | the title of your card |
+| due_date | date    | optional             | the date for which your card is to be completed by. Can not be in the past |
+| id | integer | required | id of your list |
+| card_id | integer | required | id of your the card|
 
     
 #### Update a card for a list
@@ -96,13 +101,13 @@ Parameters:
     
 Parameters:
 
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | title | string    | required             | the title of your card |
-    | description | string    | required             | the title of your card |
-    | due_date | date    | optional             | the date for which your card is to be completed by |
-    | id | integer | required | id of your list |
-    | card_id | integer | required | id of your the card|
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- | ----------- |
+| title | string    | required             | the title of your card |
+| description | string    | required             | the title of your card |
+| due_date | date    | optional             | the date for which your card is to be completed by |
+| id | integer | required | id of your list |
+| card_id | integer | required | id of your the card|
     
 #### Responses
     
