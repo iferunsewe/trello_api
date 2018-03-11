@@ -43,9 +43,9 @@ example responses
     
 Parameters:
 
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | name | string    | required             | the name of your list |
+ | name | data type | required_or_optional | description |
+ | ---- | --------- | -------------------- | ----------- |
+ | name | string    | required             | the name of your list |
     
 #### Retrieve a list
     GET /lists/:id    
