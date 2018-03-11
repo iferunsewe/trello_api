@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_list
+  before_action :set_card, only: [:show, :update]
 
   def index
     @cards = @list.cards
@@ -7,7 +8,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    @card = @list.cards.find(params[:id]) if @list
     render json: @card, status: :ok
   end
 
@@ -16,10 +16,25 @@ class CardsController < ApplicationController
     render json: @card, status: :created
   end
 
+  def update
+    @card.update(card_params)
+    render json: @card, status: :ok
+  end
+
+  def change_list
+    card = Card.find(params[:id])
+    card.update(list_id: params[:list_id])
+    render json: card, status: :ok
+  end
+
   private
 
   def set_list
     @list = List.find(params[:list_id])
+  end
+
+  def set_card
+    @card = @list.cards.find(params[:id]) if @list
   end
 
   def card_params

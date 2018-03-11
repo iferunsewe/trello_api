@@ -75,6 +75,34 @@ RSpec.describe 'Cards API', type: :request do
     end
   end
 
+  describe 'update a card in a list' do
+    before do
+      put "/lists/#{list_id}/cards/#{card_id}", params: params
+    end
+
+    context 'when the card exists' do
+      let(:params){ { title: 'New title' } }
+      it 'returns a 200 status code' do
+        expect_status_code?(200)
+      end
+
+      it 'returns the card with the changed attribute' do
+        expect(parsed_json['id']).to eq(card_id)
+        expect(parsed_json['title']).to eq(params[:title])
+      end
+    end
+  end
+
+  context 'when changing the list the card belongs to' do
+    let(:new_list) { create(:list) }
+
+    it 'returns the card attached to a different list' do
+      expect(Card.find(card_id).list_id).to eq list_id
+      put "/cards/#{card_id}/change_list/#{new_list.id}"
+      expect(parsed_json['list_id']).to eq(new_list.id)
+    end
+  end
+
   def expect_status_code?(status_code)
     expect(response.status).to eq status_code
   end
