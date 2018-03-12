@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_list
-  before_action :set_card, only: [:show, :update]
+  before_action :set_card, only: [:show, :update, :destroy]
 
   def index
     @cards = @list.cards
@@ -19,6 +19,11 @@ class CardsController < ApplicationController
   def update
     @card.update(card_params)
     render json: @card, status: :ok
+  end
+
+  def destroy
+    @card.destroy
+    head :no_content
   end
 
   def change_list
