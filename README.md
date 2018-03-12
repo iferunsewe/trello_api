@@ -143,3 +143,11 @@ These are examples for the response body for a list or card you can expect from 
         "list_id":1
     }
     
+## Rake task
+
+I've added a rake task to update a cards status and it can be run by the following command:
+
+    rake card_status:update
+
+This will update card and will determine whether the due date is soon or whether it is overdue. This could be run daily on a cron job.    
+    
