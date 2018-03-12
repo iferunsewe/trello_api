@@ -38,6 +38,7 @@ example responses
 #### Retrieve all the lists
     GET /lists
 
+    should return an array of lists
 #### Create a list
     POST /lists
     
@@ -46,6 +47,8 @@ Parameters:
  | name | data type | required_or_optional | description |
  | ---- | --------- | -------------------- | ----------- |
  | name | string    | required             | the name of your list |
+ 
+should return the list object you created
     
 #### Retrieve a list
     GET /lists/:id    
@@ -54,8 +57,10 @@ Parameters:
     
     | name | data type | required_or_optional | description |
     | ---- | --------- | -------------------- | ----------- |
-    | id | integer | required | id of your list |
+    | id | integer | required | id of the list you want to get |
     
+should the list object
+
 #### Retrieve all the cards for a list
     GET /lists/:id/cards
     
@@ -63,17 +68,19 @@ Parameters:
     
 | name | data type | required_or_optional | description |
 | ---- | --------- | -------------------- |          --- |
-| id | integer | required | id of your list |
+| id | integer | required | id of your list you want to retrieve all the cards from |
         
 #### Retrieve a card from a list
-    GET /lists/:id/cards/:card_id       
+    GET /lists/:id/cards/:card_id
+    
+should return the card object from a list
      
 Parameters:
     
 | name | data type | required_or_optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | id | integer | required | id of your list |
-| card_id | integer | required | id of your the card|
+| card_id | integer | required | id of your the card you want to find|
     
         
 #### Create a card for a list
@@ -87,8 +94,8 @@ Parameters:
 | description | string    | required             | the title of your card |
 | due_date | date    | optional             | the date for which your card is to be completed by. Can not be in the past |
 | id | integer | required | id of your list |
-| card_id | integer | required | id of your the card|
 
+ should return the card object you created
     
 #### Update a card for a list
         
@@ -102,20 +109,36 @@ Parameters:
 | description | string    | required             | the title of your card |
 | due_date | date    | optional             | the date for which your card is to be completed by |
 | id | integer | required | id of your list |
-| card_id | integer | required | id of your the card|
+| card_id | integer | required | id of your the card you want to update|
 
+ should return the card object you updated
 
 #### Move a card from one list to another
 
-    PUT '/cards/:id/change_list/:list_id'
+    PUT /cards/:id/change_list/:list_id
     
 Parameters:
     
 | name | data type | required_or_optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | id | integer | required | id of your card |
-| list_id | integer | required | id of your the list you are moving it to|    
-    
+| list_id | integer | required | id of your the list you are moving it to|
+
+ should return the card object with an updated list_id
+
+#### Delete a card from a list
+
+    DELETE /lists/:id/cards/:card_id
+
+Parameters:
+ 
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- | ----------- |
+| id | integer | required | id of your list |
+| card_id | integer | required | id of your the card you want to delete|
+
+should return nothing
+
 ## Responses
 
 These are examples for the response body for a list or card you can expect from successful request.
@@ -150,4 +173,3 @@ I've added a rake task to update a cards status and it can be run by the followi
     rake card_status:update
 
 This will update card and will determine whether the due date is soon or whether it is overdue. This could be run daily on a cron job.    
-    
