@@ -109,7 +109,9 @@ Parameters:
 | id | integer | required | id of your list |
 | card_id | integer | required | id of your the card|
     
-#### Responses
+## Responses
+
+These are examples for the response body for a list or card you can expect from successful request.
     
 **List** response body example:
     
@@ -130,7 +132,7 @@ Parameters:
         "due_date_soon":false,
         "overdue":false,
         "created_at":"2018-03-11T09:35:23.643Z",
-        "updated_at":"2018-03-11T02:35:23.643Z",
+        "updated_at":"2018-03-11T09:35:23.643Z",
         "list_id":1
     }
     
