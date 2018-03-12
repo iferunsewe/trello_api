@@ -44,7 +44,7 @@ example responses
     
 Parameters:
 
- | name | data type | required_or_optional | description |
+ | name | data type | required or optional | description |
  | ---- | --------- | -------------------- | ----------- |
  | name | string    | required             | the name of your list |
  
@@ -55,9 +55,9 @@ should return the list object you created
      
 Parameters:
     
-    | name | data type | required_or_optional | description |
-    | ---- | --------- | -------------------- | ----------- |
-    | id | integer | required | id of the list you want to get |
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- | ----------- |
+| id | integer | required | id of the list you want to get |
     
 should the list object
 
@@ -66,7 +66,7 @@ should the list object
     
 Parameters:
     
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- |          --- |
 | id | integer | required | id of your list you want to retrieve all the cards from |
         
@@ -77,7 +77,7 @@ should return the card object from a list
      
 Parameters:
     
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | id | integer | required | id of your list |
 | card_id | integer | required | id of your the card you want to find|
@@ -88,7 +88,7 @@ Parameters:
 
 Parameters:
 
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | title | string    | required             | the title of your card |
 | description | string    | required             | the title of your card |
@@ -103,7 +103,7 @@ Parameters:
     
 Parameters:
 
-| name | data type | required_or_optional | description |
+| name | data type | required or optional | description |
 | ---- | --------- | -------------------- | ----------- |
 | title | string    | required             | the title of your card |
 | description | string    | required             | the title of your card |
