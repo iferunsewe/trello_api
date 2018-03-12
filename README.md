@@ -60,11 +60,6 @@ Parameters:
     GET /lists/:id/cards
     
 Parameters:
-
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
     
 | name | data type | required_or_optional | description |
 | ---- | --------- | -------------------- |          --- |
@@ -108,6 +103,18 @@ Parameters:
 | due_date | date    | optional             | the date for which your card is to be completed by |
 | id | integer | required | id of your list |
 | card_id | integer | required | id of your the card|
+
+
+#### Move a card from one list to another
+
+    PUT '/cards/:id/change_list/:list_id'
+    
+Parameters:
+    
+| name | data type | required_or_optional | description |
+| ---- | --------- | -------------------- | ----------- |
+| id | integer | required | id of your card |
+| list_id | integer | required | id of your the list you are moving it to|    
     
 ## Responses
 
