@@ -16,6 +16,22 @@ Starting off you'll need to clone the application and bundle. In your command li
     git clone && cd 
     bundle install
     
+## Usage
+
+To use this API locally, you'll first have to migrate the database. So within this project run the following:
+
+    rake db:migrate
+
+Now start the server:
+    
+    bundle exec rails server -p 3000
+    
+Now you should be able to run requests to `localhost:3000`. For example:
+   
+    curl -v localhost:3000/lists/1
+
+Will return the list with an id equal to 1 if one exists.
+   
 ## Tests
     
 To run all the tests associated with this repository:
